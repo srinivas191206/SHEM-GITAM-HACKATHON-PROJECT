@@ -34,6 +34,9 @@ const steps = [
 ];
 
 const HowItWorks: React.FC = () => {
+    const leftSteps = steps.slice(0, 2);
+    const rightSteps = steps.slice(2, 4);
+
     return (
         <section id="how-it-works" className="py-20 bg-gray-50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,30 +45,70 @@ const HowItWorks: React.FC = () => {
                     <p className="text-xl text-gray-600">From raw data to smart energy decisions.</p>
                 </div>
 
-                <div className="relative">
-                    {/* Connecting Line (Desktop) */}
-                    <div className="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-0 transform -translate-y-1/2"></div>
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 relative">
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {steps.map((step, index) => (
+                    {/* Left Column Steps */}
+                    <div className="flex flex-col gap-6 lg:w-1/4">
+                        {leftSteps.map((step, index) => (
                             <motion.div
                                 key={step.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.2 }}
-                                className="relative z-10 flex flex-col items-center text-center bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                                className="relative z-10 flex flex-col items-center lg:items-end text-center lg:text-right bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
                             >
-                                <div className={`w-16 h-16 rounded-full ${step.color} flex items-center justify-center mb-6 shadow-md`}>
+                                <div className={`w-12 h-12 rounded-full ${step.color} flex items-center justify-center mb-4 shadow-md`}>
                                     {step.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
                                     {step.description}
                                 </p>
                             </motion.div>
                         ))}
                     </div>
+
+                    {/* Center Video */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="w-full lg:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
+                    >
+                        <iframe
+                            className="w-full h-full"
+                            src="https://www.youtube.com/embed/NNFMUHOcq2o"
+                            title="How SHEM Works"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
+                    </motion.div>
+
+                    {/* Right Column Steps */}
+                    <div className="flex flex-col gap-6 lg:w-1/4">
+                        {rightSteps.map((step, index) => (
+                            <motion.div
+                                key={step.id}
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: (index + 2) * 0.2 }}
+                                className="relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                            >
+                                <div className={`w-12 h-12 rounded-full ${step.color} flex items-center justify-center mb-4 shadow-md`}>
+                                    {step.icon}
+                                </div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    {step.description}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
         </section>
