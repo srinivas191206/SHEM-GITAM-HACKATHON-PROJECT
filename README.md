@@ -8,6 +8,10 @@
 
 ## 🌟 Key Features
 
+## 🎥 Video Demo
+[![SHEM Demo Video](https://img.youtube.com/vi/NNFMUHOcq2o/0.jpg)](https://youtu.be/NNFMUHOcq2o?si=_1XPGDIK7r8ljUN7n)
+Click to watch the demo!
+
 ### 🖥️ Dashboard V2 (Premium Experience)
 - **Real-Time Monitoring**: Visualize Voltage, Current, Power, and Energy consumption live.
 - **AI-Powered Insights**: Integrated **Chatbot & Smart Tips** (powered by OpenRouter/Gemini) to suggest actionable energy-saving habits.
@@ -37,8 +41,8 @@
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/ritesh-1918/SHEM.git
-    cd SHEM
+    git clone https://github.com/srinivas191206/SHEM-GITAM-HACKATHON-PROJECT.git
+    cd SHEM-GITAM-HACKATHON-PROJECT
     ```
 
 2.  **Setup Frontend**
